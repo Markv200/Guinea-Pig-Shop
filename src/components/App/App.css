@@ -1,3 +1,4 @@
+
 html,
 body,
 #react-root {
@@ -110,3 +111,9 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* Assuming the navbar is 60px tall */
+.main-content {
+  padding-top: 80px; /* Adjust based on navbar height */
+}
+
