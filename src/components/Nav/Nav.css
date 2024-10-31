@@ -1,42 +1,100 @@
+
 .nav {
-  /* flex box layout */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin: 0 0 30px;
-  background-color: #00acb0;
-  overflow: hidden;
+  padding: 10px 40px;
+  background-color: #e3d3d3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-.nav a {
-  text-decoration: none;
-}
-
+/* Title Link */
 .nav-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  color: #f2f2f2;
-  padding-left: 10px;
+  color: #ffffff;
   margin: 0;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 1px;
+  text-decoration: none; /* This removes the underline */
+
 }
 
-.navLink {
-  display: inline-block;
-  color: #f2f2f2;
-  background-color: #00acb0;
+/* Styling for nav links (Shop, Checkout, About, Login) */
+.navLink, .nav button {
+  color: #ffffff;
+  background-color: transparent;
   text-align: center;
-  padding: 24px 10px;
-  text-decoration: none;
-  font-size: 15px;
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
   border: none;
   cursor: pointer;
-  outline: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.navLink:hover {
-  background-color: #008183;
+/* Add margin to the rightmost button */
+.nav div:last-child button:last-child,
+.nav div:last-child .logout-button {
+  margin-right: 20px;
 }
+
+/* Hover effect */
+.navLink:hover, .nav button:hover {
+  color: #00c2cb;
+}
+
+/* Active Link State (Optional) */
+.navLink.active, .nav button.active {
+  color: #00c2cb;
+  border-bottom: 2px solid #00c2cb;
+}
+
+/* User dropdown styling */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #1c1c1c;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.user-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* LogOutButton styling */
+.logout-button {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.logout-button:hover {
+  color: #ff4d4d;
+}
+
+
