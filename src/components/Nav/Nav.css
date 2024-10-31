@@ -1,4 +1,3 @@
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -14,7 +13,7 @@
 }
 
 /* Title Link */
-.nav-title {
+.nav-title h2 {
   font-size: 28px;
   font-weight: 700;
   color: #ffffff;
@@ -22,11 +21,10 @@
   cursor: pointer;
   font-family: 'Helvetica Neue', sans-serif;
   letter-spacing: 1px;
-  text-decoration: none; /* This removes the underline */
-
+  text-decoration: none;
 }
 
-/* Styling for nav links (Shop, Checkout, About, Login) */
+/* Styling for nav links and buttons */
 .navLink, .nav button {
   color: #ffffff;
   background-color: transparent;
@@ -39,6 +37,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: color 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
 }
 
 /* Add margin to the rightmost button */
@@ -52,7 +51,7 @@
   color: #00c2cb;
 }
 
-/* Active Link State (Optional) */
+/* Active Link State */
 .navLink.active, .nav button.active {
   color: #00c2cb;
   border-bottom: 2px solid #00c2cb;
@@ -62,6 +61,14 @@
 .user-dropdown {
   position: relative;
   display: inline-block;
+}
+
+.user-dropdown button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .user-dropdown .dropdown-content {
@@ -76,6 +83,7 @@
   z-index: 1;
 }
 
+/* Show dropdown on hover */
 .user-dropdown:hover .dropdown-content {
   display: block;
 }
@@ -91,10 +99,15 @@
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
+  text-align: left;
 }
 
 .logout-button:hover {
   color: #ff4d4d;
 }
 
-
+/* Remove underline from nav links */
+.navLink, 
+.nav-title {
+  text-decoration: none;
+}

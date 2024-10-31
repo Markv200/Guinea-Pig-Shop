@@ -11,8 +11,8 @@ function Nav() {
     <div className="nav">
       {/* Left Side - "Guinea Pig Shoppe" title and Shop link */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/home">
-          <h2 className="nav-title">Guinea Pig Shoppe</h2>
+        <Link to="/home" className="nav-title">
+          <h2>Guinea Pig Shoppe</h2>
         </Link>
         <Link to="/shop" className="navLink">
           Shop
