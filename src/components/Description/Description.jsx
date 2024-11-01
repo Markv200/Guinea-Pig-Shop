@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
@@ -20,7 +19,7 @@ const Description = () => {
   // If item data is not yet loaded, show a loading message
   if (!item) return <p>Loading...</p>;
 
-  // Check if the item type is Dead or Pregnant to conditionally render gender controls
+  // Determine if the item type is not Dead or Pregnant to show gender controls
   const showGenderControls = item.type !== 'Dead' && item.type !== 'Pregnant';
 
   return (
