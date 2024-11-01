@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ShopPage.css'; 
@@ -29,3 +28,4 @@ const Shop = () => {
 };
 
 export default Shop;
+

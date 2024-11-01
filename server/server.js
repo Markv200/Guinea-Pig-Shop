@@ -9,12 +9,11 @@ const passport = require('./strategies/user.strategy');
 
 // Route Includes
 const userRouter = require('./routes/user.router');
-const inventoryRouter = require('./routes/template.router'); // Add this line
-
+const templateRouter = require('./routes/template.router'); // Main inventory router, renamed for accuracy
 
 // Express Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 // Passport Session Configuration
@@ -26,7 +25,7 @@ app.use(passport.session());
 
 // Routes
 app.use('/api/user', userRouter);
-app.use('/api/inventory', inventoryRouter); // Add this line to use the inventory router
+app.use('/api/inventory', templateRouter); // Use template.router.js as the main inventory route
 
 // Listen Server & Port
 app.listen(PORT, () => {
