@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './ShopPage.css'; 
+import { Link } from 'react-router-dom';
+import './ShopPage.css';
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -14,13 +15,15 @@ const Shop = () => {
     <div className="shop-container">
       <div className="shop-grid">
         {inventory.map((item) => (
-          <div key={item.id} className="shop-item">
-            <div className="image-wrapper">
-              <img src={item.image_path} alt={item.type} className="shop-image" />
+          <Link to={`/description/${item.id}`} key={item.id} className="shop-item-link">
+            <div className="shop-item">
+              <div className="image-wrapper">
+                <img src={item.image_path} alt={item.type} className="shop-image" />
+              </div>
+              <h3>{item.type}</h3>
+              <p>${item.price.toFixed(2)}</p>
             </div>
-            <h3>{item.type}</h3>
-            <p>${item.price.toFixed(2)}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
@@ -28,4 +31,3 @@ const Shop = () => {
 };
 
 export default Shop;
-

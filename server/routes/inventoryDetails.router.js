@@ -19,3 +19,5 @@ router.get('/:id', async (req, res) => { // We use only '/:id' here since it wil
     res.status(500).send(`Server error: ${error.message}`); // Send specific error message to client
   }
 });
+
+module.exports = router;

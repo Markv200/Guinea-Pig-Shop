@@ -20,7 +20,9 @@ import LoginPage from '../LoginPage/LoginPage';
 // import LandingPage from '../LandingPage/LandingPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../HomePage/HomePage';
-import Shop from '../ShopPage/Shoppage'
+import Shop from '../ShopPage/Shoppage';
+import Description from '../Description/Description';
+
 import './App.css';
 
 function App() {
@@ -47,6 +49,10 @@ function App() {
 
           <Route exact path="/shop">
             <Shop />
+          </Route>
+
+          <Route exact path="/description/:id">
+            <Description />
           </Route>
 
           {/* Public Route: About Page */}
@@ -98,6 +104,4 @@ function App() {
 }
 
 export default App;
-
-
 
