@@ -22,8 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../HomePage/HomePage';
 import Shop from '../ShopPage/Shoppage';
 import Description from '../Description/Description';
-
 import './App.css';
+import CartPage from '../Cart/Cart';
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +58,10 @@ function App() {
           {/* Public Route: About Page */}
           <Route exact path="/about">
             <AboutPage />
+          </Route>
+
+          <Route exact path="/cart">
+            <CartPage />
           </Route>
 
           {/* Protected Route: User Page (only accessible if logged in) */}
@@ -104,4 +108,3 @@ function App() {
 }
 
 export default App;
-

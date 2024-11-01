@@ -10,7 +10,6 @@ function Nav() {
 
   return (
     <div className="nav">
-      {/* Left Side - "Guinea Pig Shoppe" title and Shop link */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Link to="/home" className="nav-title">
           <h2>Guinea Pig Shoppe</h2>
@@ -19,18 +18,14 @@ function Nav() {
           Shop
         </Link>
       </div>
-
-      {/* Right Side - Links and User Dropdown */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/checkout" className="navLink cart-container">
+        <Link to="/cart" className="navLink cart-container">
           <span>Cart</span>
           {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
         </Link>
         <Link to="/about" className="navLink">
           About
         </Link>
-
-        {/* Conditional Links based on user authentication */}
         {!user.id ? (
           <Link className="navLink" to="/login">
             Login / Register

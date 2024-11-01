@@ -4,6 +4,8 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import inventorySaga from './inventory.saga'; 
 import itemDetailsSaga from './itemDetails.saga';
+// import cartSaga from './cart.saga';
+// import authSaga from './auth.saga';
 
 
 // rootSaga is the primary saga.
@@ -20,6 +22,8 @@ export default function* rootSaga() {
     userSaga(),
     inventorySaga(),     
     itemDetailsSaga(),
+    // cartSaga(),      
+    // authSaga(),
 
 
   ]);

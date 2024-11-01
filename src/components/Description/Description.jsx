@@ -8,27 +8,39 @@ const Description = () => {
   const dispatch = useDispatch();
   const history = useHistory(); // To navigate back
 
+  // Select the specific item details from the Redux store
   const item = useSelector((state) => state.selectedItem);
+
+  // Local state for quantity
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
+    // Dispatch an action to fetch item details based on the ID
     dispatch({ type: 'FETCH_ITEM_DETAILS', payload: id });
   }, [dispatch, id]);
 
   if (!item) return <p>Loading...</p>;
 
-  const showGenderControls = item.type !== 'Dead' && item.type !== 'Pregnant';
-
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
+  // Handle adding item to cart
   const handleAddToCart = () => {
-    dispatch({ type: 'ADD_TO_CART', payload: quantity });
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: quantity, // Use the selected quantity
+        image: item.image_path, // Add image URL to payload
+      },
+    });
   };
 
   return (
     <div className="description-container">
-      <button className="back-button" onClick={() => history.goBack()}>Back</button>
+      <button className="back-button" onClick={() => history.push('/shop')}>Back</button>
       <div className="description-content">
         <div className="description-image-wrapper">
           <img src={item.image_path} alt={item.type} className="description-image" />
@@ -50,12 +62,6 @@ const Description = () => {
               <span>{quantity}</span>
               <button onClick={handleIncrease}>+</button>
             </div>
-            {showGenderControls && (
-              <div className="gender-control">
-                <button>M</button>
-                <button>F</button>
-              </div>
-            )}
             <button className="add-to-cart-button" onClick={handleAddToCart}>
               Add to Cart
             </button>
