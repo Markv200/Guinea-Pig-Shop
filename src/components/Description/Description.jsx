@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './Description.css';
@@ -8,19 +8,23 @@ const Description = () => {
   const dispatch = useDispatch();
   const history = useHistory(); // To navigate back
 
-  // Select the specific item details from the Redux store
   const item = useSelector((state) => state.selectedItem);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    // Dispatch an action to fetch item details based on the ID
     dispatch({ type: 'FETCH_ITEM_DETAILS', payload: id });
   }, [dispatch, id]);
 
-  // If item data is not yet loaded, show a loading message
   if (!item) return <p>Loading...</p>;
 
-  // Determine if the item type is not Dead or Pregnant to show gender controls
   const showGenderControls = item.type !== 'Dead' && item.type !== 'Pregnant';
+
+  const handleIncrease = () => setQuantity((prev) => prev + 1);
+  const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+
+  const handleAddToCart = () => {
+    dispatch({ type: 'ADD_TO_CART', payload: quantity });
+  };
 
   return (
     <div className="description-container">
@@ -42,9 +46,9 @@ const Description = () => {
           <div className="description-controls">
             <div className="quantity-control">
               <span>Qty:</span>
-              <button>-</button>
-              <span>1</span>
-              <button>+</button>
+              <button onClick={handleDecrease}>-</button>
+              <span>{quantity}</span>
+              <button onClick={handleIncrease}>+</button>
             </div>
             {showGenderControls && (
               <div className="gender-control">
@@ -52,7 +56,9 @@ const Description = () => {
                 <button>F</button>
               </div>
             )}
-            <button className="add-to-cart-button">Add to Cart</button>
+            <button className="add-to-cart-button" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+  const itemCount = useSelector((state) => state.cart.itemCount);
 
   return (
     <div className="nav">
@@ -21,8 +22,9 @@ function Nav() {
 
       {/* Right Side - Links and User Dropdown */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/checkout" className="navLink">
-          Checkout
+        <Link to="/checkout" className="navLink cart-container">
+          <span>Cart</span>
+          {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
         </Link>
         <Link to="/about" className="navLink">
           About

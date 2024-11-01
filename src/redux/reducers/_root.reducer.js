@@ -3,6 +3,8 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import inventory from './inventory.reducer';
 import selectedItem from './selectedItem.reducer';
+import cartReducer from './cart.reducer';
+
 
 
 
@@ -17,6 +19,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   inventory,
   selectedItem,
+  cart: cartReducer,
 
 });
 
