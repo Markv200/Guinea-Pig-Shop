@@ -14,13 +14,13 @@ const Home = () => {
       {/* Header Section */}
       <header className="home-header">
         <h1>Guinea Pig Shoppe</h1>
-        <p>Your one-stop shop for all types of critters and guinea pigs!</p>
+        {/* <p>Your one-stop shop for all types of critters and guinea pigs!</p> */}
       </header>
       
       {/* Featured Image Section */}
       <section className="featured-image-section">
         <div className="image-placeholder">
-          <p>Image Placeholder</p>
+          <p>Image</p>
         </div>
       </section>
 
@@ -33,7 +33,7 @@ const Home = () => {
 
       {/* Description Section */}
       <section className="description-section">
-        <p>Description of website purpose: Discover a wide variety of adorable guinea pigs and critters available for sale. Find your perfect pet today!</p>
+        <p>Description of website purpose</p>
       </section>
     </div>
   );

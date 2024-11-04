@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './CartPage.css';
 
 const CartPage = () => {
@@ -59,7 +60,9 @@ const CartPage = () => {
         <div className="cart-summary">
           <h3>Subtotal</h3>
           <p>${calculateSubtotal().toFixed(2)}</p>
-          <button className="checkout-button">Checkout</button>
+          <Link to="/checkout">
+            <button className="checkout-button">Checkout</button>
+          </Link>
         </div>
       </div>
     </div>
