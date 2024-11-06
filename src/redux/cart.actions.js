@@ -17,3 +17,5 @@ export const addToCart = (item_id, quantity, type, price, image_path) => ({
     payload: { items, itemCount, subtotal },
   });
   
+
+  // export const loadCart = () => ({ type: 'LOAD_CART' });

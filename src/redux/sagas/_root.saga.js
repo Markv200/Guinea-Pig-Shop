@@ -4,7 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import inventorySaga from './inventory.saga'; 
 import itemDetailsSaga from './itemDetails.saga';
-// import cartSaga from './cart.saga';
+import cartSaga from './cart.saga';
 // import authSaga from './auth.saga';
 import orderSaga from './order.saga'; // Import new order saga
 
@@ -24,7 +24,7 @@ export default function* rootSaga() {
     userSaga(),
     inventorySaga(),     
     itemDetailsSaga(),
-    // cartSaga(),      
+    cartSaga(),      
     // authSaga(),
     orderSaga(),
 

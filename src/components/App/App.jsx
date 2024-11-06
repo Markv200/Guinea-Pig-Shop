@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     // Fetch user data on app load
     dispatch({ type: 'FETCH_USER' });
-
+  
     // Load cart data on app load (use backend if user is authenticated)
     if (user.id) {
       dispatch({ type: 'LOAD_CART' });
@@ -39,6 +39,7 @@ function App() {
       }
     }
   }, [dispatch, user.id]);
+  
 
   return (
     <Router>

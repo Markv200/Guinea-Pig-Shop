@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './Description.css';
-// import { addToCart } from '../../redux/cart.actions';
 
 const Description = () => {
   const { id } = useParams(); // Get item ID from URL
