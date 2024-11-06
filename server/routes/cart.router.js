@@ -1,60 +1,98 @@
 // const express = require('express');
-// const pool = require('../modules/pool');
 // const router = express.Router();
+// const pool = require('../modules/pool');
 
-// // Get the user's cart from the database
-// router.get('/', (req, res) => {
-//   if (!req.user) {
-//     return res.status(401).send('Unauthorized');
-//   }
+// // Save or update the cart for the authenticated user
+// router.post('/save', async (req, res) => {
+//   const userId = req.user?.id;
+//   const { items } = req.body;
 
-//   const queryText = `SELECT * FROM cart WHERE user_id = $1`;
-//   pool
-//     .query(queryText, [req.user.id])
-//     .then((result) => res.json(result.rows))
-//     .catch((error) => {
-//       console.error('Error retrieving cart:', error);
-//       res.sendStatus(500);
+//   if (!userId) return res.status(401).send('User not authenticated');
+
+//   try {
+//     // Clear existing cart items for the user
+//     await pool.query('DELETE FROM user_cart WHERE user_id = $1', [userId]);
+
+//     // Insert each item in the cart into the user_cart table
+//     const cartPromises = items.map(item => {
+//       return pool.query(
+//         `INSERT INTO user_cart (user_id, item_id, quantity) VALUES ($1, $2, $3)`,
+//         [userId, item.id, item.quantity]
+//       );
 //     });
+//     await Promise.all(cartPromises);
+
+//     res.sendStatus(200);
+//   } catch (error) {
+//     console.error('Error saving cart:', error);
+//     res.status(500).send('Failed to save cart');
+//   }
 // });
 
-// // Add or update an item in the cart
-// router.post('/', (req, res) => {
-//   if (!req.user) {
-//     return res.status(401).send('Unauthorized');
+// // Load the cart for the authenticated user
+// router.get('/load', async (req, res) => {
+//   const userId = req.user?.id;
+
+//   if (!userId) return res.status(401).send('User not authenticated');
+
+//   try {
+//     const result = await pool.query(
+//       `SELECT item_id AS id, quantity FROM user_cart WHERE user_id = $1`,
+//       [userId]
+//     );
+//     const items = result.rows;
+//     const itemCount = items.reduce((total, item) => total + item.quantity, 0);
+//     const subtotal = await calculateSubtotal(items);
+
+//     res.json({ items, itemCount, subtotal });
+//   } catch (error) {
+//     console.error('Error loading cart:', error);
+//     res.status(500).send('Failed to load cart');
 //   }
-
-//   const { id, name, price, quantity, image } = req.body;
-//   const queryText = `
-//     INSERT INTO cart (user_id, item_id, name, price, quantity, image)
-//     VALUES ($1, $2, $3, $4, $5, $6)
-//     ON CONFLICT (user_id, item_id)
-//     DO UPDATE SET quantity = cart.quantity + $5;
-//   `;
-
-//   pool
-//     .query(queryText, [req.user.id, id, name, price, quantity, image])
-//     .then(() => res.sendStatus(201))
-//     .catch((error) => {
-//       console.error('Error adding/updating item in cart:', error);
-//       res.sendStatus(500);
-//     });
 // });
 
-// // Delete an item from the cart
-// router.delete('/:id', (req, res) => {
-//   if (!req.user) {
-//     return res.status(401).send('Unauthorized');
+// // Helper function to calculate subtotal based on item prices
+// async function calculateSubtotal(items) {
+//   let subtotal = 0;
+//   for (const item of items) {
+//     const result = await pool.query(`SELECT price FROM inventorytype WHERE id = $1`, [item.id]);
+//     subtotal += result.rows[0].price * item.quantity;
 //   }
+//   return subtotal;
+// }
 
-//   const queryText = `DELETE FROM cart WHERE user_id = $1 AND item_id = $2`;
-//   pool
-//     .query(queryText, [req.user.id, req.params.id])
-//     .then(() => res.sendStatus(204))
-//     .catch((error) => {
-//       console.error('Error deleting item from cart:', error);
-//       res.sendStatus(500);
-//     });
+// // Update item quantity in the user's cart
+// router.put('/updateQuantity', async (req, res) => {
+//   const userId = req.user?.id;
+//   const { item_id, quantity } = req.body;
+
+//   if (!userId) return res.status(401).send('User not authenticated');
+
+//   try {
+//     await pool.query(
+//       'UPDATE user_cart SET quantity = $1 WHERE user_id = $2 AND item_id = $3',
+//       [quantity, userId, item_id]
+//     );
+//     res.sendStatus(200);
+//   } catch (error) {
+//     console.error('Error updating cart quantity:', error);
+//     res.status(500).send('Failed to update cart quantity');
+//   }
+// });
+
+// // Clear the user's cart
+// router.delete('/clear', async (req, res) => {
+//   const userId = req.user?.id;
+
+//   if (!userId) return res.status(401).send('User not authenticated');
+
+//   try {
+//     await pool.query('DELETE FROM user_cart WHERE user_id = $1', [userId]);
+//     res.sendStatus(200);
+//   } catch (error) {
+//     console.error('Error clearing cart:', error);
+//     res.status(500).send('Failed to clear cart');
+//   }
 // });
 
 // module.exports = router;

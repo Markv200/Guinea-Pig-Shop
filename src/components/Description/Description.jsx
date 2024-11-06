@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './Description.css';
+// import { addToCart } from '../../redux/cart.actions';
 
 const Description = () => {
   const { id } = useParams(); // Get item ID from URL
   const dispatch = useDispatch();
-  const history = useHistory(); // To navigate back
+  const history = useHistory();
 
   // Select the specific item details from the Redux store
   const item = useSelector((state) => state.selectedItem);
@@ -29,11 +30,11 @@ const Description = () => {
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        quantity: quantity, // Use the selected quantity
-        image: item.image_path, // Add image URL to payload
+        item_id: item.id,           // Matching backend 'item_id'
+        name: item.type,           // Type or name of the item
+        price: item.price,         // Price of the item
+        quantity,                  // Use the selected quantity
+        image: item.image_path,    // Image URL for display
       },
     });
   };
