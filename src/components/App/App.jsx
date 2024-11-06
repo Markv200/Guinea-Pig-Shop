@@ -25,8 +25,20 @@ function App() {
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
+    // Fetch user data on app load
     dispatch({ type: 'FETCH_USER' });
-  }, [dispatch]);
+
+    // Load cart data on app load (use backend if user is authenticated)
+    if (user.id) {
+      dispatch({ type: 'LOAD_CART' });
+    } else {
+      // For guests, load cart from localStorage if available
+      const savedCart = JSON.parse(localStorage.getItem('cart'));
+      if (savedCart) {
+        dispatch({ type: 'SET_CART', payload: { items: savedCart, itemCount: savedCart.length } });
+      }
+    }
+  }, [dispatch, user.id]);
 
   return (
     <Router>

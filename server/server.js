@@ -11,7 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const templateRouter = require('./routes/template.router'); // Main inventory router, renamed for accuracy
 const inventoryDetailsRouter = require('./routes/inventoryDetails.router'); // New router for item details
-// const cartRouter = require('./routes/cart.router');
+const cartRouter = require('./routes/cart.router');
 const orderRouter = require('./routes/order.router'); // Import new order router
 
 
@@ -31,7 +31,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/inventory', templateRouter); // Use template.router.js as the main inventory route
 app.use('/api/inventory/details', inventoryDetailsRouter); // Route for detailed item info
-// app.use('/api/cart', cartRouter);
+app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter); // Add order router
 
 

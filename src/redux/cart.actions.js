@@ -1,19 +1,19 @@
-// // redux/cart.actions.js
+// redux/cart.actions.js
 
-// export const addToCart = (itemId, quantity, name, price, image) => ({
-//     type: 'ADD_TO_CART',
-//     payload: { item_Id, quantity, name, price, image },
-//   });
+export const addToCart = (item_id, quantity, type, price, image_path) => ({
+    type: 'ADD_TO_CART',
+    payload: { item_id, quantity, type, price, image_path },
+  });
   
-//   export const updateCartQuantity = (itemId, quantity) => ({
-//     type: 'UPDATE_CART_QUANTITY',
-//     payload: { itemId, quantity },
-//   });
+  export const updateCartQuantity = (item_id, quantity) => ({
+    type: 'UPDATE_CART_QUANTITY',
+    payload: { item_id, quantity },
+  });
   
-//   export const clearCart = () => ({ type: 'CLEAR_CART' });
+  export const clearCart = () => ({ type: 'CLEAR_CART' });
   
-//   export const setCart = (items, itemCount, subtotal) => ({
-//     type: 'SET_CART',
-//     payload: { items, itemCount, subtotal },
-//   });
+  export const setCart = (items, itemCount, subtotal) => ({
+    type: 'SET_CART',
+    payload: { items, itemCount, subtotal },
+  });
   
