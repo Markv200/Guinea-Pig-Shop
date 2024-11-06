@@ -13,7 +13,7 @@ const cartReducer = (state = initialState, action) => {
         itemCount: action.payload.itemCount,
         subtotal: action.payload.subtotal,
       };
-    }
+    }    
     case 'ADD_TO_CART': {
       console.log("Payload received in ADD_TO_CART:", action.payload); // Log the payload structure
 

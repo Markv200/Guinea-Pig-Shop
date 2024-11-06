@@ -33,7 +33,7 @@ const CartPage = () => {
         <div className="cart-items">
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
-              <div className="cart-item" key={item.item_id}> {/* Use `item_id` as the unique key */}
+              <div className="cart-item" key={item.id}> 
                 <div className="item-image">
                   <img src={item.image} alt={item.name} />
                 </div>
@@ -41,8 +41,8 @@ const CartPage = () => {
                   <h2>{item.name}</h2>
                   <div className="item-quantity">
                     <span>QTY {item.quantity}</span>
-                    <button onClick={() => handleIncrease(item.item_id)}>+</button> {/* Use `item_id` */}
-                    <button onClick={() => handleDecrease(item.item_id)}>-</button> {/* Use `item_id` */}
+                    <button onClick={() => handleIncrease(item.item_id)}>+</button> 
+                    <button onClick={() => handleDecrease(item.item_id)}>-</button> 
                   </div>
                   <button className="remove-button" onClick={() => handleRemove(item.item_id)}>
                     Remove from cart

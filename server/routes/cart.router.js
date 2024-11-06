@@ -43,8 +43,6 @@ router.post('/save', async (req, res) => {
 });
 
 
-
-// Load the cart for the authenticated user
 router.get('/load', async (req, res) => {
   const userId = req.user?.id;
 
@@ -52,12 +50,20 @@ router.get('/load', async (req, res) => {
 
   try {
     const result = await pool.query(
-      `SELECT item_id AS id, quantity FROM user_cart WHERE user_id = $1`,
+      `SELECT 
+         user_cart.item_id AS id, 
+         user_cart.quantity, 
+         inventorytype.price, 
+         inventorytype.type AS name, 
+         inventorytype.image_path AS image 
+       FROM user_cart
+       JOIN inventorytype ON user_cart.item_id = inventorytype.id
+       WHERE user_cart.user_id = $1`,
       [userId]
     );
     const items = result.rows;
     const itemCount = items.reduce((total, item) => total + item.quantity, 0);
-    const subtotal = await calculateSubtotal(items);
+    const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
     res.json({ items, itemCount, subtotal });
   } catch (error) {
