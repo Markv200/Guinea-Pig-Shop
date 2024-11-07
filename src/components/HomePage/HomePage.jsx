@@ -1,6 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './HomePage.css';
+import homeImage from '../HomePage/HomeImg.webp';
+
 
 const Home = () => {
   const history = useHistory();
@@ -19,16 +21,9 @@ const Home = () => {
       
       {/* Featured Image Section */}
       <section className="featured-image-section">
-        <div className="image-placeholder">
-          <p>Image</p>
-        </div>
-      </section>
-
-      {/* Available Animals Section */}
-      <section className="animals-section">
-        <h2>Available Animals</h2>
-        {/* Uncomment this line when AnimalList component is ready */}
-        {/* <AnimalList /> */}
+      <div className="image-placeholder">
+    <img src={homeImage} alt="Featured Guinea Pig" />
+  </div>
       </section>
 
       {/* Description Section */}

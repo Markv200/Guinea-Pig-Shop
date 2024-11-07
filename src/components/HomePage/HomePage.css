@@ -1,70 +1,51 @@
 .home-container {
-    font-family: Arial, sans-serif;
-    color: #333;
-    padding-top: 80px; /* Adjust based on navbar height */
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding-top: 0; 
+}
 
-  }
-  
-  /* Header Section */
-  .home-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-bottom: 2px solid #ddd;
-  }
-  
-  .home-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-    color: #8b0000;
-  }
-  
-  .home-header p {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #555;
-  }
-  
-  /* Featured Image Section */
-  .featured-image-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #c0c0c0;
-    height: 300px;
-    margin: 20px 0;
-  }
-  
-  .image-placeholder {
-    text-align: center;
-    font-size: 1.5em;
-    color: #555;
-  }
-  
-  /* Available Animals Section */
-  .animals-section {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .animals-section h2 {
-    font-size: 2em;
-    color: #8b0000;
-  }
-  
-  /* Description Section */
-  .description-section {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e7e7e7;
-    color: #555;
-  }
-  
-  .description-section p {
-    font-size: 1.1em;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+/* Header Section */
+.home-header {
+  text-align: center;
+  padding: 20px 20px 10px; /* Reduce top padding to bring closer to navbar */
+  border-bottom: none;
+  margin-bottom: 20px; /* Add margin to create space below the title */
+}
+
+.home-header h1 {
+  font-size: 2.8em;
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.featured-image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Adjust to allow flexible height */
+  margin: 0 auto; /* Center the image */
+}
+
+.featured-image-section img {
+  width: 500px; 
+  height: auto; 
+}
+
+
+
+/* Description Section */
+.description-section {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  color: #555;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.description-section p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #666;
+}
