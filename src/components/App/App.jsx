@@ -19,6 +19,9 @@ import CheckoutPage from '../Checkout/Checkout';
 import ThankYou from '../Thankyou/Thankyou';
 import AdminPage from '../AdminPage'; // New import for AdminPage
 
+import OrdersPage from '../Orders/Orders';
+import InventoryPage from '../Inventory/Inventory'
+
 import './App.css';
 
 function App() {
@@ -96,6 +99,8 @@ function App() {
 
           {/* Admin-Only Protected Route: Admin Page */}
           <ProtectedRoute exact path="/admin" component={AdminPage} adminOnly={true} />
+          <ProtectedRoute exact path="/admin/orders" component={OrdersPage} adminOnly={true} />
+          <ProtectedRoute exact path="/admin/inventory" component={InventoryPage} adminOnly={true} />
 
 
           {/* Public Route: Login Page */}

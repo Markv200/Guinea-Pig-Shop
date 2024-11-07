@@ -27,11 +27,19 @@ function Nav() {
           About
         </Link>
 
-        {/* Admin Link - Only visible to users with the admin role */}
+        {/* Admin Links - Only visible to users with the admin role */}
         {user.role === 'admin' && (
-          <Link to="/admin" className="navLink">
-            Admin
-          </Link>
+          <>
+            <Link to="/admin" className="navLink">
+              Admin Dashboard
+            </Link>
+            <Link to="/admin/inventory" className="navLink">
+              Inventory
+            </Link>
+            <Link to="/admin/orders" className="navLink">
+              Orders
+            </Link>
+          </>
         )}
 
         {/* Login / User Dropdown */}
