@@ -35,6 +35,23 @@ router.get('/orders', (req, res) => {
   });
   
 
+// Update order status to "Completed"
+router.put('/orders/:id/status', (req, res) => {
+    const orderId = req.params.id;
+    const queryText = `
+      UPDATE orders
+      SET status = 'Completed'
+      WHERE id = $1;
+    `;
+  
+    pool.query(queryText, [orderId])
+      .then(() => res.sendStatus(200))
+      .catch(error => {
+        console.error('Error updating order status:', error);
+        res.status(500).send(error);
+      });
+  });
+  
 
 
 // server/routes/admin.router.js

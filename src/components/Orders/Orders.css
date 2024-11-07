@@ -3,7 +3,6 @@
     padding: 20px;
     color: #333;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f5f5f5;
   }
   
   .orders-page h1 {
@@ -80,4 +79,39 @@
     color: #4a4a4a;
     font-weight: 600;
   }
+
+  .orders-page .completed-order {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+
+  .orders-page td .complete-button {
+    display: block;
+    margin-top: 5px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .orders-page td .complete-button:hover {
+    background-color: #45a049;
+  }
+  
+  .orders-page td .cancel-button {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .orders-page td .cancel-button:hover {
+    background-color: #e53935;
+  }
+  
+  
   

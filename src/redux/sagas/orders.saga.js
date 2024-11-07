@@ -23,10 +23,21 @@ function* fetchOrdersSaga() {
   }
 
 
+  function* updateOrderStatusSaga(action) {
+    try {
+      yield call(axios.put, `/api/admin/orders/${action.payload}/status`);
+      yield put({ type: 'FETCH_ORDERS' }); // Refresh the orders list
+    } catch (error) {
+      console.error('Error updating order status:', error);
+    }
+  }
+
 // Root saga for orders
 function* watchOrdersSaga() {
   yield takeLatest('DELETE_ORDER', deleteOrderSaga);
   yield takeLatest('FETCH_ORDERS', fetchOrdersSaga);
+  yield takeLatest('UPDATE_ORDER_STATUS', updateOrderStatusSaga);
+
 }
 
 export default watchOrdersSaga;
