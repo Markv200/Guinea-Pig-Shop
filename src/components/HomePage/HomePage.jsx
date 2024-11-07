@@ -28,7 +28,7 @@ const Home = () => {
 
       {/* Description Section */}
       <section className="description-section">
-        <p>Description of website purpose</p>
+        <p>Guinea Pig Shoppe is a website for customers interested in purchasing a unique variety of guinea pigs. Whether you're looking for a cuddly pet or your next meal, Guinea Pig Shoppe has you covered. We offer a selection of guinea pigs in various stages of life from babies and pregnant moms to be to adult males and females, each available in different colors, patterns, and ages. For those with culinary interests, we also provide cleaned, deceased guinea pigs ready for cooking. Explore our diverse options to find exactly what you need!</p>
       </section>
     </div>
   );
