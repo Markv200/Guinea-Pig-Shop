@@ -5,8 +5,8 @@ import userSaga from './user.saga';
 import inventorySaga from './inventory.saga'; 
 import itemDetailsSaga from './itemDetails.saga';
 import cartSaga from './cart.saga';
-// import authSaga from './auth.saga';
 import orderSaga from './order.saga'; // Import new order saga
+import watchOrdersSaga from './orders.saga';
 
 
 
@@ -25,8 +25,8 @@ export default function* rootSaga() {
     inventorySaga(),     
     itemDetailsSaga(),
     cartSaga(),      
-    // authSaga(),
     orderSaga(),
+    watchOrdersSaga(),
 
 
   ]);

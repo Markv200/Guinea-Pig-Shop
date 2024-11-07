@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import './Orders.css';
 
 function OrdersPage() {
-  const [orders, setOrders] = useState([]);
+  const dispatch = useDispatch();
+  const orders = useSelector((store) => store.orders); // Access orders from Redux
 
   useEffect(() => {
-    axios.get('/api/admin/orders')
-      .then(response => setOrders(response.data))
-      .catch(error => console.log('Error fetching orders:', error));
-  }, []);
+    dispatch({ type: 'FETCH_ORDERS' }); // Fetch orders on mount
+  }, [dispatch]);
+
+  const handleDeleteOrder = (orderId) => {
+    dispatch({ type: 'DELETE_ORDER', payload: orderId });
+  };
 
   return (
     <div className="orders-page">
@@ -16,27 +20,22 @@ function OrdersPage() {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Info</th>
-            <th>Amount Sold</th>
-            <th>Payment</th>
-            <th>Status</th>
-            <th>Delivery</th>
-            <th>Cancel</th>
+            <th>Order ID</th><th>Amount Sold</th><th>Guinea Pig Type</th><th>Payment</th><th>Status</th><th>Delivery</th><th>Address</th><th>Cancel</th>
           </tr>
         </thead>
         <tbody>
-          {orders.map((order) => (
-            <tr key={order.id}>
-              <td>{order.name}</td>
-              <td>{order.contact}</td>
-              <td>{order.amount_sold}</td>
-              <td>{order.payment}</td>
-              <td>{order.status}</td>
-              <td>{order.delivery}</td>
-              <td><button>Cancel</button></td>
+          {orders.length > 0 ? (
+            orders.map((order, index) => (
+              <tr key={`${order.order_id}-${index}`}>
+                <td>{order.order_id}</td><td>{order.amount_sold}</td><td>{order.guinea_type}</td><td>{order.payment}</td><td>{order.status}</td><td>{order.delivery ? 'Yes' : 'No'}</td><td>{order.address}</td>
+                <td><button onClick={() => handleDeleteOrder(order.order_id)}>Cancel</button></td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="8">No orders found.</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

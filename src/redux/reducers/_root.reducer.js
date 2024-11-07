@@ -4,6 +4,7 @@ import user from './user.reducer';
 import inventory from './inventory.reducer';
 import selectedItem from './selectedItem.reducer';
 import cartReducer from './cart.reducer';
+import ordersReducer from './orders.reducer';
 
 
 
@@ -20,6 +21,8 @@ const rootReducer = combineReducers({
   inventory,
   selectedItem,
   cart: cartReducer,
+  orders: ordersReducer,
+
 
 });
 
