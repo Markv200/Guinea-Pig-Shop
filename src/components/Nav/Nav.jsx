@@ -26,6 +26,15 @@ function Nav() {
         <Link to="/about" className="navLink">
           About
         </Link>
+
+        {/* Admin Link - Only visible to users with the admin role */}
+        {user.role === 'admin' && (
+          <Link to="/admin" className="navLink">
+            Admin
+          </Link>
+        )}
+
+        {/* Login / User Dropdown */}
         {!user.id ? (
           <Link className="navLink" to="/login">
             Login / Register

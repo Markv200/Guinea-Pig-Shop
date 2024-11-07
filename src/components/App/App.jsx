@@ -17,6 +17,7 @@ import Description from '../Description/Description';
 import CartPage from '../Cart/Cart';
 import CheckoutPage from '../Checkout/Checkout';
 import ThankYou from '../Thankyou/Thankyou';
+import AdminPage from '../AdminPage'; // New import for AdminPage
 
 import './App.css';
 
@@ -39,7 +40,6 @@ function App() {
       }
     }
   }, [dispatch, user.id]);
-  
 
   return (
     <Router>
@@ -93,6 +93,10 @@ function App() {
           <ProtectedRoute exact path="/info">
             <InfoPage />
           </ProtectedRoute>
+
+          {/* Admin-Only Protected Route: Admin Page */}
+          <ProtectedRoute exact path="/admin" component={AdminPage} adminOnly={true} />
+
 
           {/* Public Route: Login Page */}
           <Route exact path="/login">

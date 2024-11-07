@@ -13,6 +13,7 @@ const templateRouter = require('./routes/template.router'); // Main inventory ro
 const inventoryDetailsRouter = require('./routes/inventoryDetails.router'); // New router for item details
 const cartRouter = require('./routes/cart.router');
 const orderRouter = require('./routes/order.router'); // Import new order router
+const adminRouter = require('./routes/admin.router');
 
 
 // Express Middleware
@@ -33,6 +34,7 @@ app.use('/api/inventory', templateRouter); // Use template.router.js as the main
 app.use('/api/inventory/details', inventoryDetailsRouter); // Route for detailed item info
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter); // Add order router
+app.use('/api/admin', adminRouter);
 
 
 // Listen Server & Port
