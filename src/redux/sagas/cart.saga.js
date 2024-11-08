@@ -49,7 +49,7 @@ function* updateQuantity(action) {
 function* clearCart() {
   try {
     yield call(axios.delete, '/api/cart/clear');
-    yield put({ type: 'CLEAR_CART' });
+    // yield put({ type: 'CLEAR_CART' });
   } catch (error) {
     console.error('Error clearing cart:', error);
   }

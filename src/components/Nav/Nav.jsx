@@ -19,10 +19,6 @@ function Nav() {
         </Link>
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Link to="/cart" className="navLink cart-container">
-          <span>Cart</span>
-          {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
-        </Link>
         <Link to="/about" className="navLink">
           About
         </Link>
@@ -57,6 +53,12 @@ function Nav() {
             </div>
           </div>
         )}
+
+        {/* Cart Link - Positioned at the end */}
+        <Link to="/cart" className="navLink cart-container">
+          <span>Cart</span>
+          {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
+        </Link>
       </div>
     </div>
   );

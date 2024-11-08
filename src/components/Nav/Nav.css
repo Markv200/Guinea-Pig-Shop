@@ -31,7 +31,7 @@
   background-color: transparent;
   text-align: center;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   border: none;
   cursor: pointer;
@@ -112,6 +112,7 @@
 .nav-title {
   text-decoration: none;
   color: #1c1c1c;
+  font-size: 20px;
 }
 
 .cart-container {
