@@ -14,11 +14,11 @@ function Nav() {
         <Link to="/home" className="nav-title">
           <h2>Guinea Pig Shoppe</h2>
         </Link>
-        <Link to="/shop" className="navLink">
-          Shop
-        </Link>
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Link to="/shop" className="navLink">
+          Shop
+        </Link>
         <Link to="/about" className="navLink">
           About
         </Link>
@@ -26,9 +26,9 @@ function Nav() {
         {/* Admin Links - Only visible to users with the admin role */}
         {user.role === 'admin' && (
           <>
-            <Link to="/admin" className="navLink">
+            {/* <Link to="/admin" className="navLink">
               Admin Dashboard
-            </Link>
+            </Link> */}
             <Link to="/admin/inventory" className="navLink">
               Inventory
             </Link>
