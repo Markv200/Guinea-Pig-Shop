@@ -1,4 +1,3 @@
-// src/components/Inventory/InventoryPage.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Inventory.css';
@@ -7,13 +6,11 @@ function InventoryPage() {
   const [inventory, setInventory] = useState([]);
 
   useEffect(() => {
-    // Fetch inventory data from the backend
     axios.get('/api/admin/inventory')
       .then(response => setInventory(response.data))
       .catch(error => console.error('Error fetching inventory:', error));
   }, []);
 
-  // Function to handle adding quantity
   const handleAdd = (itemId) => {
     axios.put(`/api/admin/inventory/${itemId}/add`)
       .then(() => {
@@ -24,7 +21,6 @@ function InventoryPage() {
       .catch(error => console.error('Error adding inventory item:', error));
   };
 
-  // Function to handle removing quantity
   const handleRemove = (itemId) => {
     axios.put(`/api/admin/inventory/${itemId}/remove`)
       .then(() => {
@@ -37,9 +33,7 @@ function InventoryPage() {
       .catch(error => console.error('Error removing inventory item:', error));
   };
 
-  // Function to handle editing item details (redirect to edit page or open modal)
   const handleEdit = (itemId) => {
-    // Redirect to edit page or open a modal with item details
     console.log(`Editing item with ID: ${itemId}`);
   };
 

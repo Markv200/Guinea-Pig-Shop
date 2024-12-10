@@ -4,18 +4,15 @@ import { useParams, useHistory } from 'react-router-dom';
 import './Description.css';
 
 const Description = () => {
-  const { id } = useParams(); // Get item ID from URL
+  const { id } = useParams(); 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // Select the specific item details from the Redux store
   const item = useSelector((state) => state.selectedItem);
 
-  // Local state for quantity
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    // Dispatch an action to fetch item details based on the ID
     dispatch({ type: 'FETCH_ITEM_DETAILS', payload: id });
   }, [dispatch, id]);
 
@@ -24,16 +21,15 @@ const Description = () => {
   const handleIncrease = () => setQuantity((prev) => prev + 1);
   const handleDecrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
-  // Handle adding item to cart
   const handleAddToCart = () => {
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
-        item_id: item.id,           // Matching backend 'item_id'
-        name: item.type,           // Type or name of the item
-        price: item.price,         // Price of the item
-        quantity,                  // Use the selected quantity
-        image: item.image_path,    // Image URL for display
+        item_id: item.id,           
+        name: item.type,           
+        price: item.price,         
+        quantity,               
+        image: item.image_path,   
       },
     });
   };

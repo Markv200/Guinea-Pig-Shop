@@ -15,7 +15,7 @@ const cartReducer = (state = initialState, action) => {
       };
     }    
     case 'ADD_TO_CART': {
-      console.log("Payload received in ADD_TO_CART:", action.payload); // Log the payload structure
+      console.log("Payload received in ADD_TO_CART:", action.payload); 
 
       const existingItem = state.items.find(item => item.id === action.payload.item_id);
 

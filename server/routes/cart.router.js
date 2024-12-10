@@ -7,37 +7,32 @@ router.post('/save', async (req, res) => {
   const userId = req.user?.id;
   const { items } = req.body;
 
-  // Check if user is authenticated
   if (!userId) {
     console.error('User not authenticated');
     return res.status(401).send('User not authenticated');
   }
 
-  console.log('Saving cart items:', items); // Log the received items for structure confirmation
+  console.log('Saving cart items:', items);
 
   try {
-    // Clear existing cart items for the user
     await pool.query('DELETE FROM user_cart WHERE user_id = $1', [userId]);
 
-    // Prepare each item for insertion into the database
     const cartPromises = items.map(item => {
-      // Check if item_id is present and valid before attempting insertion
       if (!item.item_id) {
-        console.error('Item ID is null or undefined:', item); // Log details of the problematic item
+        console.error('Item ID is null or undefined:', item); 
         throw new Error('item_id cannot be null');
       }
 
-      // Insert item into the user_cart table
       return pool.query(
         `INSERT INTO user_cart (user_id, item_id, quantity) VALUES ($1, $2, $3)`,
         [userId, item.item_id, item.quantity]
       );
     });
 
-    await Promise.all(cartPromises); // Wait for all insertions to complete
-    res.sendStatus(200); // Respond with success if all items are saved
+    await Promise.all(cartPromises); 
+    res.sendStatus(200); 
   } catch (error) {
-    console.error('Error saving cart:', error); // Log detailed error if any issue arises
+    console.error('Error saving cart:', error); 
     res.status(500).send('Failed to save cart');
   }
 });
@@ -72,7 +67,6 @@ router.get('/load', async (req, res) => {
   }
 });
 
-// Helper function to calculate subtotal based on item prices
 async function calculateSubtotal(items) {
   let subtotal = 0;
   for (const item of items) {
@@ -82,7 +76,6 @@ async function calculateSubtotal(items) {
   return subtotal;
 }
 
-// Update item quantity in the user's cart
 router.put('/updateQuantity', async (req, res) => {
   const userId = req.user?.id;
   const { item_id, quantity } = req.body;
@@ -101,7 +94,6 @@ router.put('/updateQuantity', async (req, res) => {
   }
 });
 
-// Clear the user's cart
 router.delete('/clear', async (req, res) => {
   const userId = req.user?.id;
 

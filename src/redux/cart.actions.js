@@ -1,4 +1,3 @@
-// redux/cart.actions.js
 
 export const addToCart = (item_id, quantity, type, price, image_path) => ({
     type: 'ADD_TO_CART',
@@ -18,7 +17,6 @@ export const addToCart = (item_id, quantity, type, price, image_path) => ({
   });
   
 
-  // export const loadCart = () => ({ type: 'LOAD_CART' });
   export const updateOrderStatus = (orderId) => ({
     type: 'UPDATE_ORDER_STATUS',
     payload: orderId,

@@ -2,11 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-// GET route to fetch details of a specific inventory item by ID
-router.get('/:id', async (req, res) => { // We use only '/:id' here since it will be mounted under '/api/inventory/details'
+router.get('/:id', async (req, res) => { 
   const queryText = 'SELECT * FROM "inventorytype" WHERE id = $1';
   try {
-    console.log('Fetching details for ID:', req.params.id); // Debugging log
+    console.log('Fetching details for ID:', req.params.id); 
     const result = await pool.query(queryText, [req.params.id]);
 
     if (result.rows.length === 0) {
@@ -15,8 +14,8 @@ router.get('/:id', async (req, res) => { // We use only '/:id' here since it wil
 
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error in GET /details/:id route:', error); // More specific logging
-    res.status(500).send(`Server error: ${error.message}`); // Send specific error message to client
+    console.error('Error in GET /details/:id route:', error); 
+    res.status(500).send(`Server error: ${error.message}`); 
   }
 });
 

@@ -8,7 +8,6 @@ router.post('/', async (req, res) => {
   console.log('Received order data:', req.body);
 
   try {
-    // Insert order details without the user_id column
     const orderQuery = `
       INSERT INTO "orders" ("paymenttype", "iscash", "status", "isdelivery", "address")
       VALUES ($1, $2, 'Pending', $3, $4)
@@ -23,7 +22,6 @@ router.post('/', async (req, res) => {
       throw new Error('Order ID not generated');
     }
 
-    // Insert each item in the order into the order_inventory table
     const itemQueries = items.map(item => {
       console.log('Inserting item:', item);
       return pool.query(

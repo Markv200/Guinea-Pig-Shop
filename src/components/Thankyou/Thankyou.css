@@ -2,20 +2,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f2f2f2; /* Light grey for an elegant background */
-    color: #333; /* Darker, neutral font color */
+    background-color: #f2f2f2; 
+    color: #333; 
     padding: 20px;
     border-radius: 8px;
-    font-family: "Helvetica Neue", Arial, sans-serif; /* Clean, modern font */
+    font-family: "Helvetica Neue", Arial, sans-serif; 
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
   h2 {
     color: #333;
     font-size: 24px;
-    font-weight: 500; /* Semi-bold heading for Abercrombie-like emphasis */
+    font-weight: 500; 
     margin-bottom: 16px;
   }
   
@@ -26,7 +26,7 @@
     margin: 10px 0;
     border-radius: 4px;
     font-size: 18px;
-    letter-spacing: 1px; /* Subtle spacing for sophistication */
+    letter-spacing: 1px; 
   }
   
   p {
@@ -44,10 +44,10 @@
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    text-transform: uppercase; /* Modern touch for buttons */
+    text-transform: uppercase; 
   }
   
   .backButton:hover {
-    background-color: #555; /* Slightly lighter on hover */
+    background-color: #555; 
   }
   

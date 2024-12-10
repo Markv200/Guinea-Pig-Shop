@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import './CartPage.css';
 
 const CartPage = () => {
-  const cartItems = useSelector((state) => state.cart.items || []); // Use an empty array as fallback
+  const cartItems = useSelector((state) => state.cart.items || []); 
   const dispatch = useDispatch();
 
-  // Update to use `item_id` for consistency with the database structure
   const handleIncrease = (item_id) => {
     dispatch({ type: 'INCREASE_QUANTITY', payload: item_id });
   };

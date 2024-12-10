@@ -1,11 +1,8 @@
-
-/* Container for the whole shop page */
 .shop-container {
     padding: 20px;
     color: #333;
   }
   
-  /* Grid layout for the shop items */
   .shop-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -13,7 +10,6 @@
     justify-content: center;
   }
   
-  /* Each shop item card */
   .shop-item {
     text-align: center;
     padding: 10px;
@@ -24,11 +20,10 @@
   
   .shop-item:hover .image-wrapper,
   .shop-item:hover h3 {
-    transform: translateY(-5px); /* Lift effect on both image and text */
-    opacity: 0.9; /* Slight fade effect */
+    transform: translateY(-5px); 
+    opacity: 0.9; 
   }
   
-  /* Wrapper for each image to make it larger */
   .image-wrapper {
     width: 400px;
     height: 400px;
@@ -38,14 +33,12 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
   
-  /* Styling for images to cover the wrapper area */
   .shop-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   
-  /* Product name styling */
   .shop-item h3 {
     margin: 10px 0 5px 0;
     font-size: 1.2em;
@@ -56,12 +49,10 @@
     transition: color 0.3s ease, transform 0.3s ease;
   }
   
-  /* Change color and transform on hover */
   .shop-item:hover h3 {
-    color: #5a0000; /* Change text color on hover */
+    color: #5a0000; 
   }
   
-  /* Price styling */
   .shop-item p {
     margin: 5px 0;
     font-size: 1em;

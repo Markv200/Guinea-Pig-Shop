@@ -6,7 +6,6 @@ const pool = require('../modules/pool');
 
 
 router.get('/dashboard', adminOnly, (req, res) => {
-  // Return data only accessible by admin
   res.json({ message: 'Welcome Admin' });
 });
 
@@ -35,7 +34,6 @@ router.get('/orders', (req, res) => {
   });
   
 
-// Update order status to "Completed"
 router.put('/orders/:id/status', (req, res) => {
     const orderId = req.params.id;
     const queryText = `
@@ -68,21 +66,16 @@ router.delete('/orders/:id', async (req, res) => {
     `;
   
     try {
-      // Start a transaction
       await pool.query('BEGIN');
   
-      // Delete related records in order_inventory
       await pool.query(deleteOrderInventoryQuery, [orderId]);
   
-      // Delete the order in orders table
       await pool.query(deleteOrderQuery, [orderId]);
   
-      // Commit the transaction
       await pool.query('COMMIT');
   
-      res.sendStatus(204); // Successfully deleted
+      res.sendStatus(204); 
     } catch (error) {
-      // Rollback transaction in case of error
       await pool.query('ROLLBACK');
       console.error('Error deleting order:', error);
       res.sendStatus(500);

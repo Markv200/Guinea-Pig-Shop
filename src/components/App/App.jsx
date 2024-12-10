@@ -17,7 +17,7 @@ import Description from '../Description/Description';
 import CartPage from '../Cart/Cart';
 import CheckoutPage from '../Checkout/Checkout';
 import ThankYou from '../Thankyou/Thankyou';
-import AdminPage from '../AdminPage'; // New import for AdminPage
+import AdminPage from '../AdminPage'; 
 
 import OrdersPage from '../Orders/Orders';
 import InventoryPage from '../Inventory/Inventory'

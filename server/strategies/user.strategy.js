@@ -36,12 +36,12 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   pool
-    .query('SELECT id, username, role FROM "user" WHERE id = $1', [id]) // Fetch role as well
+    .query('SELECT id, username, role FROM "user" WHERE id = $1', [id]) 
     .then((result) => {
       const user = result && result.rows && result.rows[0];
 
       if (user) {
-        delete user.password; // Just in case password is accidentally fetched
+        delete user.password; 
         done(null, user);
       } else {
         done(null, null);

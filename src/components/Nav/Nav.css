@@ -13,7 +13,6 @@
   
 }
 
-/* Title Link */
 .nav-title h2 {
   font-size: 28px;
   font-weight: 700;
@@ -25,7 +24,6 @@
   text-decoration: none;
 }
 
-/* Styling for nav links and buttons */
 .navLink, .nav button {
   color: #1c1c1c;
   background-color: transparent;
@@ -41,24 +39,20 @@
   text-decoration: none;
 }
 
-/* Add margin to the rightmost button */
 .nav div:last-child button:last-child,
 .nav div:last-child .logout-button {
   margin-right: 20px;
 }
 
-/* Hover effect */
 .navLink:hover, .nav button:hover {
   color: #00c2cb;
 }
 
-/* Active Link State */
 .navLink.active, .nav button.active {
   color: #00c2cb;
   border-bottom: 2px solid #00c2cb;
 }
 
-/* User dropdown styling */
 .user-dropdown {
   position: relative;
   display: inline-block;
@@ -84,12 +78,10 @@
   z-index: 1;
 }
 
-/* Show dropdown on hover */
 .user-dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* LogOutButton styling */
 .logout-button {
   color: #1c1c1c;
   background-color: transparent;
@@ -107,7 +99,6 @@
   color: #ff4d4d;
 }
 
-/* Remove underline from nav links */
 .navLink, 
 .nav-title {
   text-decoration: none;

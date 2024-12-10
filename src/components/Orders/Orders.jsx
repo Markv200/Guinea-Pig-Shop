@@ -5,10 +5,10 @@ import './Orders.css';
 
 function OrdersPage() {
   const dispatch = useDispatch();
-  const orders = useSelector((store) => store.orders); // Access orders from Redux
+  const orders = useSelector((store) => store.orders); 
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_ORDERS' }); // Fetch orders on mount
+    dispatch({ type: 'FETCH_ORDERS' }); 
   }, [dispatch]);
 
   const handleDeleteOrder = (orderId) => {

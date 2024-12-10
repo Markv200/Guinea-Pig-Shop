@@ -4,12 +4,11 @@
   padding-top: 0; 
 }
 
-/* Header Section */
 .home-header {
   text-align: center;
-  padding: 20px 20px 10px; /* Reduce top padding to bring closer to navbar */
+  padding: 20px 20px 10px; 
   border-bottom: none;
-  margin-bottom: 20px; /* Add margin to create space below the title */
+  margin-bottom: 20px; 
 }
 
 .home-header h1 {
@@ -23,8 +22,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* Adjust to allow flexible height */
-  margin: 0 auto; /* Center the image */
+  height: auto; 
+  margin: 0 auto; 
 }
 
 .featured-image-section img {
@@ -34,7 +33,6 @@
 
 
 
-/* Description Section */
 .description-section {
   text-align: center;
   margin-top: 20px;

@@ -3,11 +3,11 @@
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #f5f5f5; /* Light gray background */
+    background-color: #f5f5f5; 
     color: #333;
     font-family: 'Arial', sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
   }
   
   .checkout-form {
@@ -60,7 +60,7 @@
   }
   
   .user-info-form input:focus {
-    border-color: #800000; /* Dark red border on focus */
+    border-color: #800000; 
     outline: none;
   }
   
@@ -80,7 +80,7 @@
   }
   
   .submit-order-button:hover {
-    background-color: #990000; /* Darker red on hover */
+    background-color: #990000; 
   }
   
   .cart-summary {
