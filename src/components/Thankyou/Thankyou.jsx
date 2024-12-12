@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import './ThankYou.css'; 
+import './Thankyou.css'; 
 
 const ThankYou = () => {
   const history = useHistory();
